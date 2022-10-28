@@ -1,0 +1,36 @@
+#root,
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  --bg: white;
+  --font-d: 30;
+}
+
+#app.dark {
+  --bg: black;
+  --font-d: 240;
+}
+
+#app {
+  display: flex;
+  flex-flow: column;
+  font-family: system-ui, -apple-system, Roboto, sans-serif;
+  box-sizing: border-box;
+  padding: 8px;
+
+  background-color: var(--bg);
+  --font: rgb(var(--font-d), var(--font-d), var(--font-d));
+  color: var(--font);
+  transition: all 0.2s ease-out;
+}
+
+img {
+  height: 70px;
+}
+
+button {
+  height: 10px;
+}
