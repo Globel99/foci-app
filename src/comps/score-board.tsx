@@ -1,4 +1,4 @@
-import '../styles/ScoreBoard.css';
+import './styles/score-board.css';
 
 interface Props {
   home: number;
@@ -6,7 +6,7 @@ interface Props {
   minute: number;
 }
 
-export function ScoreBoard(props: Props) {
+export default function ScoreBoard(props: Props) {
   return (
     <div className="score-board">
       <div className="score">

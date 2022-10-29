@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import './App.css';
-import { ScoreBoard } from './comps/ScoreBoard';
+
+import LastMatches from './views/last-matches';
+
+import './app.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -8,14 +10,13 @@ function App() {
   function toggleDarkMode() {
     setDarkMode(!darkMode);
   }
-
   const logoPath = `assets/leagues/${darkMode ? 'pl-dark.svg' : 'pl.svg'}`;
 
   return (
     <div id="app" className={darkMode ? 'dark' : ''}>
       <button onClick={toggleDarkMode}></button>
       <img src={logoPath} />
-      <ScoreBoard home={2} away={0} minute={43}></ScoreBoard>
+      <LastMatches></LastMatches>
     </div>
   );
 }
