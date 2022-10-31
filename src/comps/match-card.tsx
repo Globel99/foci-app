@@ -2,8 +2,9 @@ import ScoreBoard from './score-board';
 import Badge from './badge';
 import StatBar from './stat-bar';
 import PossessionIcon from '../icons/possession-icon';
+import ShotsIcon from '../icons/shots-icon';
 
-import './styles/match-card.css';
+import './styles/match-card.scss';
 
 import { AfFixture } from '../../types/api-football';
 
@@ -14,8 +15,8 @@ type Props = {
 export default function MatchCard({
   match: {
     goals,
-    teams: { home, away },
-  },
+    teams: { home, away }
+  }
 }: Props) {
   const r = () => Math.random();
 
@@ -31,15 +32,15 @@ export default function MatchCard({
         <Badge logoSrc={away.logo} name={away.name} />
       </div>
       <div className="stats">
-        <div>
+        <div className="stat">
           <div className="img-container">
             <PossessionIcon />
           </div>
           <StatBar values={[r(), r()]} />
         </div>
-        <div>
+        <div className="stat">
           <div className="img-container">
-            <img src="assets/ball.svg" />
+            <ShotsIcon />
           </div>
           <StatBar values={[r(), r()]} />
         </div>

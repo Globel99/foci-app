@@ -1,4 +1,4 @@
-import './styles/score-board.css';
+import './styles/score-board.scss';
 
 interface Props {
   home: number;

@@ -1,0 +1,13 @@
+.badge {
+  display: grid;
+  place-items: center;
+
+  img {
+    height: 40px;
+  }
+
+  span {
+    text-align: center;
+    font-size: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-import './styles/stat-bar.css';
+import './styles/stat-bar.scss';
 
 type Props = {
   values: [number, number];
@@ -7,16 +7,19 @@ type Props = {
 
 export default function StatBar({ values, texts }: Props) {
   const v = values;
+
   const filledIndex = v[1] > v[0] ? 1 : 0;
   const sumV = v[0] + v[1];
-  const filledWidth = (v[filledIndex] / sumV) * 100;
+  const filledV = v[filledIndex];
+
+  const filledWidth = (filledV / sumV) * 100;
 
   const filledStyle = {
-    width: `${filledWidth}%`,
+    width: `${filledWidth}%`
   };
 
   const containerStyle = {
-    justifyContent: filledIndex ? 'flex-end' : 'flex-start',
+    justifyContent: filledIndex ? 'flex-end' : 'flex-start'
   };
 
   return (
