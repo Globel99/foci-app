@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import LastMatches from './views/last-matches';
 
-import './app.css';
+import './app.scss';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -14,9 +14,11 @@ function App() {
 
   return (
     <div id="app" className={darkMode ? 'dark' : ''}>
-      <button onClick={toggleDarkMode}></button>
-      <img src={logoPath} />
-      <LastMatches></LastMatches>
+      <div id="container">
+        <button onClick={toggleDarkMode}></button>
+        <img src={logoPath} />
+        <LastMatches></LastMatches>
+      </div>
     </div>
   );
 }

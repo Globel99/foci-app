@@ -1,8 +1,10 @@
 import {
   AfTeamsResponse,
   AfFixturesResponse,
-  ApiFootballResponse,
+  ApiFootballResponse
 } from '../../types/api-football';
+
+import objectCache from '../utils/object-cache';
 
 const hostName = 'v3.football.api-sports.io';
 
@@ -11,15 +13,22 @@ const client = {
     apiFootballFetch('/teams', { id }),
   getLastFixtures: async (
     leagueId: number,
-    last: number,
+    last: number
   ): Promise<AfFixturesResponse> =>
-    apiFootballFetch('/fixtures', { league: leagueId, last }),
+    apiFootballFetch('/fixtures', { league: leagueId, last })
 };
 
 const apiFootballFetch = async (
   endpoint: string,
-  queryParams: { [key: string]: any },
-): Promise<any> => {
+  queryParams: { [key: string]: any }
+): Promise<ApiFootballResponse> => {
+  const obj = { endpoint, queryParams };
+  const cache = objectCache;
+
+  if (cache.has(obj)) {
+    return cache.get(obj);
+  }
+
   const queryString = new URLSearchParams(queryParams).toString();
 
   const response = await fetch(
@@ -28,12 +37,15 @@ const apiFootballFetch = async (
       method: 'GET',
       headers: {
         'x-rapidapi-host': hostName,
-        'x-rapidapi-key': import.meta.env.VITE_API_KEY,
-      },
-    },
+        'x-rapidapi-key': import.meta.env.VITE_API_KEY
+      }
+    }
   );
 
-  return await response.json();
+  const result = await response.json();
+  cache.set(obj, result);
+
+  return result;
 };
 
 export default client;

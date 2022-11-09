@@ -1,4 +1,5 @@
 import './styles/stat-bar.scss';
+import classNames from 'classnames';
 
 type Props = {
   values: [number, number];
@@ -23,7 +24,13 @@ export default function StatBar({ values, texts }: Props) {
   };
 
   return (
-    <div className="stat-bar" style={containerStyle}>
+    <div
+      className={classNames({
+        'stat-bar': true,
+        full: filledV === sumV
+      })}
+      style={containerStyle}
+    >
       <div className="filled" style={filledStyle}></div>
     </div>
   );

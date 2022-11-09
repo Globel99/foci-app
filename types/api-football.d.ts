@@ -1,5 +1,5 @@
 export type ApiFootballResponse = ResponseBase & {
-  response: {}[];
+  response: ?Array;
 };
 
 export type AfTeamsResponse = ResponseBase & {
