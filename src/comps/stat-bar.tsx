@@ -10,6 +10,7 @@ export default function StatBar({ values, texts }: Props) {
   const v = values;
 
   const filledIndex = v[1] > v[0] ? 1 : 0;
+  const [lowerNumber, biggerNumber] = v.sort();
   const sumV = v[0] + v[1];
   const filledV = v[filledIndex];
 
@@ -19,8 +20,12 @@ export default function StatBar({ values, texts }: Props) {
     width: `${filledWidth}%`
   };
 
-  const containerStyle = {
-    justifyContent: filledIndex ? 'flex-end' : 'flex-start'
+  const nonFilledWidth = {
+    width: `${100 - filledWidth}%`
+  };
+
+  const filledFlowDirection = {
+    justifyContent: filledIndex || v[0] === v[1] ? 'flex-end' : 'flex-start'
   };
 
   return (
@@ -29,9 +34,17 @@ export default function StatBar({ values, texts }: Props) {
         'stat-bar': true,
         full: filledV === sumV
       })}
-      style={containerStyle}
+      style={filledFlowDirection}
     >
-      <div className="filled" style={filledStyle}></div>
+      <div
+        className="bar filled"
+        style={{ ...filledStyle, ...filledFlowDirection }}
+      >
+        <span className="bigger-number">{biggerNumber}</span>
+      </div>
+      <div className="bar non-filled" style={nonFilledWidth}>
+        {lowerNumber > 0 && <span className="lower-number">{lowerNumber}</span>}
+      </div>
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default function MatchCard({
     teams: { home, away }
   }
 }: Props) {
-  const r = () => Math.random();
+  const r = () => Math.floor(Math.random() * 10);
 
   return (
     <div className="match-card">

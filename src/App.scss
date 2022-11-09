@@ -7,15 +7,18 @@
 #app {
   --bg: white;
   --font-d: 30;
+  --font-d-inv: 240;
 }
 
 #app.dark {
   --bg: black;
   --font-d: 240;
+  --font-d-inv: 30;
 }
 
 #app {
   --font: rgb(var(--font-d), var(--font-d), var(--font-d));
+  --font-inv: rgb(var(--font-d-inv), var(--font-d-inv), var(--font-d-inv));
   --fg: var(--font);
 }
 
