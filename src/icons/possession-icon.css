@@ -4,3 +4,7 @@
   align-items: center;
   font-weight: bold;
 }
+
+.possession-icon img {
+  filter: invert(var(--light));
+}
