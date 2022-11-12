@@ -1,0 +1,37 @@
+.switch {
+  --size: 25px;
+  display: flex;
+  height: var(--size);
+  width: calc(var(--size) * 2.5);
+  background-color: rgba(var(--bg), 1);
+
+  .button {
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: lightgray;
+    margin-left: auto;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: var(--size);
+    width: var(--size);
+    transition: width 0.2s;
+    background-color: #4ed164;
+  }
+}
+
+.switch:not(.on) {
+  border: 1px solid rgba(grey, 0.5);
+}
+
+.switch.on .button-container {
+  width: 100%;
+}
+
+.switch,
+.switch * {
+  border-radius: calc(var(--size) * 2);
+}

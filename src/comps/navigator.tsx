@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SettingsMenu from './menus/settings-menu';
 
 type Icon = 'settings' | 'search' | 'home';
 
@@ -13,9 +14,9 @@ export default function Navigator() {
     return (
       <div
         onClick={() => {
-          setSelected(icon);
+          setSelected(selected === icon ? null : icon);
         }}
-        className={isSelected ? 'selected' : ''}
+        className={isSelected ? 'menu-icon selected' : 'menu-icon'}
       >
         <MaterialIcon icon={icon} />
       </div>
@@ -27,6 +28,11 @@ export default function Navigator() {
       {Icon('settings')}
       {Icon('home')}
       {Icon('search')}
+      {selected && (
+        <div className="menu">
+          {selected === 'settings' && <SettingsMenu></SettingsMenu>}
+        </div>
+      )}
     </div>
   );
 }

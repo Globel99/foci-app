@@ -1,4 +1,5 @@
 .navigator {
+  position: relative;
   display: grid;
   place-items: center;
   grid-auto-flow: column;
@@ -12,21 +13,50 @@
     font-size: 32px;
   }
 
-  div {
-    transition: all 0.2s;
+  .menu-icon {
+    transition-property: margin, color;
+    transition-duration: 0.2s;
     color: grey;
     margin-top: 0;
     height: 100%;
     background-color: inherit;
-    border-radius: 40%;
+    border-radius: 50%;
     padding: 0 30px;
     display: grid;
     place-items: center;
   }
 
-  div.selected {
+  .menu-icon.selected {
     height: calc(100% + 10px);
     color: var(--font);
     margin-top: -20px;
+  }
+
+  .menu {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+    background-color: inherit;
+    animation: fadein 0.2s;
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    div {
+      font-family: var(--font-family);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 }

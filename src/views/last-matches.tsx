@@ -14,9 +14,6 @@ export default function LastMatches() {
   async function fetchMatches() {
     const resp = await afClient.getLastFixtures(leagueId, 10);
     const matches = resp.response;
-    console.log(resp);
-    setMatches(matches);
-    console.log(matches);
   }
 
   useEffect(() => {

@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+body {
+  overflow: hidden;
+}
+
 #app {
   --bg: white;
   --font-d: 30;
@@ -24,6 +28,7 @@
   --font: rgb(var(--font-d), var(--font-d), var(--font-d));
   --font-inv: rgb(var(--font-d-inv), var(--font-d-inv), var(--font-d-inv));
   --fg: var(--font);
+  --font-family: system-ui, -apple-system, Roboto, sans-serif;
 }
 
 #app {
@@ -40,10 +45,10 @@
   position: absolute;
   top: 0;
   height: calc(100% - 50px);
-  overflow: scroll;
+  overflow-y: scroll;
   max-width: 600px;
   flex-flow: column;
-  font-family: system-ui, -apple-system, Roboto, sans-serif;
+  font-family: var(--font-family);
   box-sizing: border-box;
   padding: 8px;
 }

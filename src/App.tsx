@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context, Theme } from './context';
 
 import LastMatches from './views/last-matches';
 import Navigator from './comps/navigator';
@@ -6,22 +7,26 @@ import Navigator from './comps/navigator';
 import './app.scss';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const defaultTheme: Theme =
+    localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 
-  function toggleDarkMode() {
-    setDarkMode(!darkMode);
-  }
-  const logoPath = `assets/leagues/${darkMode ? 'pl-dark.svg' : 'pl.svg'}`;
+  const [theme, setTheme] = useState(defaultTheme);
+  localStorage.setItem('theme', theme);
+
+  const isDark = theme === 'dark';
+
+  const logoPath = `assets/leagues/${isDark ? 'pl-dark.svg' : 'pl.svg'}`;
 
   return (
-    <div id="app" className={darkMode ? 'dark' : ''}>
-      <div id="container">
-        <button onClick={toggleDarkMode}></button>
-        <img src={logoPath} />
-        <LastMatches />
+    <Context.Provider value={{ theme, setTheme }}>
+      <div id="app" className={isDark ? 'dark' : ''}>
+        <div id="container">
+          <img src={logoPath} />
+          <LastMatches />
+        </div>
+        <Navigator />
       </div>
-      <Navigator />
-    </div>
+    </Context.Provider>
   );
 }
 
