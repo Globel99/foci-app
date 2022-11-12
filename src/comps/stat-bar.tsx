@@ -1,4 +1,4 @@
-import './styles/stat-bar.scss';
+import './stat-bar.scss';
 import classNames from 'classnames';
 
 type Props = {

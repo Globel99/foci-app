@@ -5,7 +5,7 @@ import MatchCard from '../comps/match-card';
 
 import { AfFixture } from '../../types/api-football';
 
-import './styles/last-matches.css';
+import './last-matches.css';
 
 export default function LastMatches() {
   const [matches, setMatches] = useState<AfFixture[]>([]);

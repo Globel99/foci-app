@@ -4,7 +4,7 @@ import StatBar from './stat-bar';
 import PossessionIcon from '../icons/possession-icon';
 import ShotsIcon from '../icons/shots-icon';
 
-import './styles/match-card.scss';
+import './match-card.scss';
 
 import { AfFixture } from '../../types/api-football';
 

@@ -1,5 +1,5 @@
 import { URI, TeamName } from '../../types/api-football';
-import './styles/badge.scss';
+import './badge.scss';
 
 type Props = {
   logoSrc: URI;
