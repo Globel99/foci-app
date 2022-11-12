@@ -1,3 +1,5 @@
+### Setup
+
 ⬇️ Install depedencies
 `yarn`
 
