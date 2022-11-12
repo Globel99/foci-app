@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import LastMatches from './views/last-matches';
+import Navigator from './comps/navigator';
 
 import './app.scss';
 
@@ -17,8 +18,9 @@ function App() {
       <div id="container">
         <button onClick={toggleDarkMode}></button>
         <img src={logoPath} />
-        <LastMatches></LastMatches>
+        <LastMatches />
       </div>
+      <Navigator />
     </div>
   );
 }

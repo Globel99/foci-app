@@ -1,0 +1,32 @@
+.navigator {
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  padding: 0 16px;
+  background-color: var(--font-inv);
+  width: 100%;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  .material-icon {
+    font-size: 32px;
+  }
+
+  div {
+    transition: all 0.2s;
+    color: grey;
+    margin-top: 0;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 40%;
+    padding: 0 30px;
+    display: grid;
+    place-items: center;
+  }
+
+  div.selected {
+    height: calc(100% + 10px);
+    color: var(--font);
+    margin-top: -20px;
+  }
+}
