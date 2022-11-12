@@ -1,8 +1,8 @@
-Install depedencies
+⬇️ Install depedencies
 `yarn`
 
-Run project at port 3000 with Vite
+⚙️ Run project at port 3000 with Vite
 `yarn start`
 
-Expose to LAN network
+📶 Expose to LAN network
 `yarn serve`
