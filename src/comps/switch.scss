@@ -18,7 +18,7 @@
     height: 100%;
     width: var(--size);
     width: var(--size);
-    transition: width 0.2s;
+    transition: width 0.1s ease-out;
     background-color: #4ed164;
   }
 }
