@@ -6,16 +6,14 @@ import ShotsIcon from '../icons/shots-icon';
 
 import './match-card.scss';
 
-import { AfFixture } from '../../types/api-football';
-
 type Props = {
-  match: AfFixture;
+  match: APP.Match;
 };
 
 export default function MatchCard({
   match: {
-    goals,
-    teams: { home, away }
+    fixture: { goals, teams },
+    stats
   }
 }: Props) {
   const r = () => Math.floor(Math.random() * 10);
@@ -23,26 +21,22 @@ export default function MatchCard({
   return (
     <div className="match-card">
       <div className="row">
-        <Badge logoSrc={home.logo} name={home.name} />
-        <ScoreBoard
-          minute={90}
-          home={Number(goals.home)}
-          away={Number(goals.away)}
-        />
-        <Badge logoSrc={away.logo} name={away.name} />
+        <Badge logoSrc={teams.home.logo} name={teams.home.name} />
+        <ScoreBoard minute={90} home={Number(goals.home)} away={Number(goals.away)} />
+        <Badge logoSrc={teams.away.logo} name={teams.away.name} />
       </div>
       <div className="stats">
         <div className="stat">
           <div className="img-container">
             <PossessionIcon />
           </div>
-          <StatBar values={[r(), r()]} />
+          <StatBar values={[parseInt(stats.home['Ball Possession']), parseInt(stats.away['Ball Possession'])]} />
         </div>
         <div className="stat">
           <div className="img-container">
             <ShotsIcon />
           </div>
-          <StatBar values={[r(), r()]} />
+          <StatBar values={[stats.home['Total Shots'], stats.away['Total Shots']]} />
         </div>
       </div>
     </div>
