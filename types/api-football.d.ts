@@ -1,4 +1,4 @@
-namespace AF {
+declare namespace AF {
   export type Response = ResponseBase & {
     response: ?Array;
   };
