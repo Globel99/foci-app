@@ -1,6 +1,7 @@
-import { MongoClient } from 'mongodb';
-
 import client from './client.js';
+import connect from './mongo.js';
+
+const db = await connect();
 
 const season = 2022;
 
@@ -21,12 +22,6 @@ for await (const league of Object.values(leagues)) {
   console.log({ ...request, response: [] });
   response.push(...request.response);
 }
-
-const mongo = new MongoClient(process.env.MONGO);
-console.log('connected to server');
-
-const db = mongo.db('foci');
-console.log('connected to db');
 
 const fixtures = db.collection('fixtures');
 fixtures.createIndex({ 'fixture.id': 1 }, { unique: true });

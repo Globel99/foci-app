@@ -7,8 +7,7 @@ import Navigator from './comps/navigator';
 import './app.scss';
 
 function App() {
-  const defaultTheme: Theme =
-    localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+  const defaultTheme: Theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 
   const [theme, setTheme] = useState(defaultTheme);
   localStorage.setItem('theme', theme);
