@@ -1,10 +1,10 @@
-namespace APP {
-  export type FixtureStat = {
-    [k: AF.StatType]: AF.NumberNull;
-  };
+import { Fixture, NumberNull, StatType } from './api-football';
 
-  export type Match = {
-    fixture: AF.Fixture;
-    stats: { home: FixtureStat; away: FixtureStat };
-  };
-}
+export type FixtureStat = {
+  [key in StatType]: NumberNull;
+};
+
+export type Match = {
+  fixture: Fixture;
+  stats: { home: FixtureStat; away: FixtureStat };
+};

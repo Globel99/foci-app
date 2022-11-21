@@ -28,6 +28,7 @@ const afFetch = async (endpoint: string, queryParams: { [key: string]: any }): P
 
 export default {
   getTeam: async (id: number): Promise<AF.TeamsResponse> => afFetch('/teams', { id }),
+  getTeams: async (league: number, season: number): Promise<AF.TeamsResponse> => afFetch('/teams', { league, season }),
   getLastFixtures: async (leagueId: number, last: number): Promise<AF.FixturesResponse> =>
     afFetch('/fixtures', { league: leagueId, last }),
   getFixtureStats: async (fixture: number): Promise<AF.FixtureStatResponse> =>

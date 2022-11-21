@@ -13,7 +13,8 @@ const leagues = {
   premier: 39,
   la: 140,
   ligue1: 61,
-  serie: 135
+  serie: 135,
+  nb1: 271
 };
 
 let response = [];
