@@ -1,5 +1,5 @@
+import styled from 'styled-components';
 import { URI, TeamName } from '../../types/api-football';
-import './badge.scss';
 
 type Props = {
   logoSrc: URI;
@@ -8,9 +8,23 @@ type Props = {
 
 export default function Badge(props: Props) {
   return (
-    <div className="badge">
+    <Root className="badge">
       <img src={props.logoSrc} />
       <span>{props.name}</span>
-    </div>
+    </Root>
   );
 }
+
+const Root = styled.div`
+  display: grid;
+  place-items: center;
+
+  img {
+    height: 40px;
+  }
+
+  span {
+    text-align: center;
+    font-size: 10px;
+  }
+`

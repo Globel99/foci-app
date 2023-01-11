@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import styled, { StyledComponent } from 'styled-components'
 import afClient from '../clients/api-football';
 import statsParser from '../utils/stats-parser';
 
 import MatchCard from '../comps/match-card';
 
-import './last-matches.css';
 import { Match } from '../../types/app';
 
 export default function LastMatches() {
@@ -29,10 +29,15 @@ export default function LastMatches() {
   }, []);
 
   return (
-    <div className="last-matches">
+    <Root>
       {Object.entries(matches).map(([fixtureId, match]) => (
         <MatchCard key={fixtureId} match={match} />
       ))}
-    </div>
+    </Root>
   );
 }
+
+const Root = styled.div`
+  display: grid;
+  gap: 20px;
+`

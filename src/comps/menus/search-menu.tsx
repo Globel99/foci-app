@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
-import './search-menu.scss';
 import MaterialIcon from '../material-icon';
 import { TeamsResponse } from '../../../types/api-football';
 
@@ -19,9 +19,9 @@ export default function SearchMenu({ setSelected }: Props) {
   const [results, setResults] = useState<Result[]>([]);
   console.log(results);
   return (
-    <div className="search-menu">
+    <Root className="search-menu">
       <div>
-        <input
+        <Input
           type="text"
           autoFocus
           onChange={async event => {
@@ -40,7 +40,7 @@ export default function SearchMenu({ setSelected }: Props) {
       <div className="no-result">
         <div>no result</div>
       </div>
-      <div className="results">
+      <Results>
         {results.map(r => (
           <div>
             <img src={r.img} />
@@ -48,8 +48,8 @@ export default function SearchMenu({ setSelected }: Props) {
             <span>{r.title}</span>
           </div>
         ))}
-      </div>
-    </div>
+      </Results>
+    </Root>
   );
 }
 
@@ -64,3 +64,41 @@ async function search(searchText: string): Promise<Result[]> {
   console.log(response);
   return response.map(({ team: { name, logo } }) => ({ img: logo, title: name }));
 }
+
+const Root = styled.div`
+  color: var(--font);
+  display: flex;
+  flex-flow: column-reverse;
+
+  div {
+    width: 100%;
+  }
+  input:focus {
+    outline: none;
+  }
+`
+
+const Input = styled.input`
+  color: var(--font);
+  font-size: 24px;
+  height: 36px;
+  width: 100%;
+  background-color: var(--bg);
+  border: unset;
+  border-radius: 8px;
+  padding-left: 12px;
+`
+
+const Results = styled.div`
+  display: flex;
+  flex-flow: column-reverse;
+
+  div {
+      height: 50px;
+
+    img {
+      height: 30px;
+    }
+  }
+`
+

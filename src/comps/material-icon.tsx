@@ -1,4 +1,4 @@
-import './material-icon.scss';
+import styled from 'styled-components';
 
 type Props = {
   filled?: boolean;
@@ -8,5 +8,9 @@ type Props = {
 export default function MaterialIcon({ filled, icon }: Props) {
   const className = `material-icons${!filled ? '-outlined' : ''}`;
 
-  return <span className={`${className} material-icon`}>{icon}</span>;
+  return <Icon className={`${className} material-icon`}>{icon}</Icon>;
 }
+
+const Icon = styled.span`
+  cursor: pointer;
+`;

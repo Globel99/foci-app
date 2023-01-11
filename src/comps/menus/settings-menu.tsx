@@ -2,7 +2,6 @@ import { useContext } from 'react';
 
 import { Context } from '../../context';
 import Switch from '../switch';
-import './settings-menu.scss';
 
 export default function SettingsMenu() {
   const { theme, setTheme } = useContext(Context);

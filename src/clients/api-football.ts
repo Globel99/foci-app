@@ -7,9 +7,9 @@ const afFetch = async (endpoint: string, queryParams: { [key: string]: any }): P
   const obj = { endpoint, queryParams };
   const cache = objectCache;
 
-  /*   if (cache.has(obj)) {
+  if (cache.has(obj)) {
     return cache.get(obj);
-  } */
+  }
 
   const queryString = new URLSearchParams(queryParams).toString();
 
