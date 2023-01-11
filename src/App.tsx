@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { Context, Theme } from './context';
 
 import LastMatches from './views/last-matches';
-import Navigator from './comps/navigator';
+import Navigator from './components/navigator';
 
 import './app.scss';
 

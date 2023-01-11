@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import styled, { StyledComponent } from 'styled-components'
+import styled from 'styled-components';
 import afClient from '../clients/api-football';
 import statsParser from '../utils/stats-parser';
 
-import MatchCard from '../comps/match-card';
+import MatchCard from '../components/match-card';
 
 import { Match } from '../../types/app';
 
@@ -40,4 +40,4 @@ export default function LastMatches() {
 const Root = styled.div`
   display: grid;
   gap: 20px;
-`
+`;
