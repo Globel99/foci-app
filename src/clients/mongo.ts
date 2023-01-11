@@ -1,5 +1,5 @@
 const hostName: string = import.meta.env.VITE_MONGO_DATA_API_URL;
-console.log(import.meta.env);
+
 const apiFetch = async (actionEndpoint: string, collection: string, requestBody: object) => {
   const baseRequestBody = {
     dataSource: 'Cluster0',

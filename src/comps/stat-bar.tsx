@@ -1,13 +1,15 @@
 import './stat-bar.scss';
 import classNames from 'classnames';
 
+import { NumberNull } from '../../types/api-football';
+
 type Props = {
-  values: [number, number];
+  values: [NumberNull, NumberNull];
   texts?: [string, string];
 };
 
 export default function StatBar({ values, texts }: Props) {
-  const v = values;
+  const v = [values[0] || 0, values[1] || 0];
 
   const filledIndex = v[1] > v[0] ? 1 : 0;
   const [lowerNumber, biggerNumber] = v.sort();
@@ -36,10 +38,7 @@ export default function StatBar({ values, texts }: Props) {
       })}
       style={filledFlowDirection}
     >
-      <div
-        className="bar filled"
-        style={{ ...filledStyle, ...filledFlowDirection }}
-      >
+      <div className="bar filled" style={{ ...filledStyle, ...filledFlowDirection }}>
         <span className="bigger-number">{biggerNumber}</span>
       </div>
       <div className="bar non-filled" style={nonFilledWidth}>

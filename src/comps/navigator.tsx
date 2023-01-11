@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import classNames from 'classnames';
+
 import SettingsMenu from './menus/settings-menu';
+import SearchMenu from './menus/search-menu';
 
 type Icon = 'settings' | 'search' | 'home';
 
@@ -8,6 +11,11 @@ import MaterialIcon from './material-icon';
 
 export default function Navigator() {
   const [selected, setSelected] = useState<Icon | null>(null);
+
+  const menus = {
+    settings: <SettingsMenu />,
+    search: <SearchMenu setSelected={setSelected} />
+  };
 
   const Icon = (icon: Icon) => {
     const isSelected = selected === icon;
@@ -24,15 +32,16 @@ export default function Navigator() {
   };
 
   return (
-    <div className="navigator">
+    <div
+      className={classNames({
+        navigator: true,
+        searching: selected === 'search'
+      })}
+    >
       {Icon('settings')}
       {Icon('home')}
       {Icon('search')}
-      {selected && (
-        <div className="menu">
-          {selected === 'settings' && <SettingsMenu></SettingsMenu>}
-        </div>
-      )}
+      {selected && selected !== 'home' && <div className="menu">{menus[selected]}</div>}
     </div>
   );
 }

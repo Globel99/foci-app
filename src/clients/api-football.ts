@@ -1,8 +1,9 @@
 import objectCache from '../utils/object-cache';
+import { Response, TeamsResponse, FixturesResponse, FixtureStatResponse } from '../../types/api-football';
 
 const hostName = 'v3.football.api-sports.io';
 
-const afFetch = async (endpoint: string, queryParams: { [key: string]: any }): Promise<AF.Response> => {
+const afFetch = async (endpoint: string, queryParams: { [key: string]: any }): Promise<Response> => {
   const obj = { endpoint, queryParams };
   const cache = objectCache;
 
@@ -27,11 +28,11 @@ const afFetch = async (endpoint: string, queryParams: { [key: string]: any }): P
 };
 
 export default {
-  getTeam: async (id: number): Promise<AF.TeamsResponse> => afFetch('/teams', { id }),
-  getTeams: async (league: number, season: number): Promise<AF.TeamsResponse> => afFetch('/teams', { league, season }),
-  getLastFixtures: async (leagueId: number, last: number): Promise<AF.FixturesResponse> =>
+  getTeam: async (id: number): Promise<TeamsResponse> => afFetch('/teams', { id }),
+  getTeams: async (league: number, season: number): Promise<TeamsResponse> => afFetch('/teams', { league, season }),
+  getLastFixtures: async (leagueId: number, last: number): Promise<FixturesResponse> =>
     afFetch('/fixtures', { league: leagueId, last }),
-  getFixtureStats: async (fixture: number): Promise<AF.FixtureStatResponse> =>
+  getFixtureStats: async (fixture: number): Promise<FixtureStatResponse> =>
     afFetch('/fixtures/statistics', { fixture }),
   get: afFetch
 };

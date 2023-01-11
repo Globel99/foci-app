@@ -5,9 +5,10 @@ import PossessionIcon from '../icons/possession-icon';
 import ShotsIcon from '../icons/shots-icon';
 
 import './match-card.scss';
+import { Match } from '../../types/app';
 
 type Props = {
-  match: APP.Match;
+  match: Match;
 };
 
 export default function MatchCard({
@@ -30,7 +31,7 @@ export default function MatchCard({
           <div className="img-container">
             <PossessionIcon />
           </div>
-          <StatBar values={[parseInt(stats.home['Ball Possession']), parseInt(stats.away['Ball Possession'])]} />
+          <StatBar values={[stats.home['Ball Possession'], stats.away['Ball Possession']]} />
         </div>
         <div className="stat">
           <div className="img-container">

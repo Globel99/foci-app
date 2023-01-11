@@ -3,7 +3,7 @@ async function loadTeams() {
   const response = await fetch(`${url}?action=find&collection=teams`);
   const { documents } = await response.json();
 
-  return new Map(documents.map(team => [team.team.id, team]));
+  return new Map((documents || []).map(team => [team.team.id, team]));
 }
 
 export default {
