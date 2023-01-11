@@ -1,4 +1,4 @@
-import './stat-bar.scss';
+import styled from 'styled-components';
 import classNames from 'classnames';
 
 import { NumberNull } from '../../types/api-football';
@@ -31,7 +31,7 @@ export default function StatBar({ values, texts }: Props) {
   };
 
   return (
-    <div
+    <Root
       className={classNames({
         'stat-bar': true,
         full: filledV === sumV
@@ -44,6 +44,41 @@ export default function StatBar({ values, texts }: Props) {
       <div className="bar non-filled" style={nonFilledWidth}>
         {lowerNumber > 0 && <span className="lower-number">{lowerNumber}</span>}
       </div>
-    </div>
+    </Root>
   );
 }
+
+const Root = styled.div`
+  display: flex;
+  width: 100%;
+  height: 12px;
+  border: 2px solid var(--fg);
+  border-radius: 8px;
+
+  .bar {
+    display: flex;
+    align-items: center;
+    height: calc(100% + 4px);
+  }
+
+  .filled {
+    background-color: var(--fg);
+    border-radius: 8px;
+  }
+
+  .bigger-number,
+  .lower-number {
+    margin: 6px;
+    font-weight: 800;
+    font-size: 10px;
+  }
+
+  .bigger-number {
+    position: absolute;
+    color: var(--bg);
+  }
+
+  .full {
+    background-color: var(--fg);
+  }
+`;
