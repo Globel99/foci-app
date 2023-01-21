@@ -31,28 +31,6 @@ body {
   --font-family: system-ui, -apple-system, Roboto, sans-serif;
 }
 
-#app {
-  display: grid;
-  place-items: center;
-  background-color: var(--bg);
-  color: var(--font);
-  transition: all 0.1s ease-out;
-}
-
-#container {
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  height: calc(100% - 50px);
-  overflow-y: scroll;
-  max-width: 600px;
-  flex-flow: column;
-  font-family: var(--font-family);
-  box-sizing: border-box;
-  padding: 8px;
-}
-
 .navigator {
   position: absolute;
   bottom: 0;
